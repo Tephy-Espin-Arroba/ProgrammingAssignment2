@@ -1,11 +1,12 @@
 makeCacheMatrix <- function(x = matrix()) {
-  #Fist, the funtion will generate a cuadratic matrix
+  #Fist, the funtion will generate a square matrix
   #then it will store the original and the inverse matrix in variables
   
   inv <- NULL
   
   set <- function(y) {
     x <<- y
+    inv <<- NULL
   }
   
   get <- function() x
@@ -19,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 cacheSolve <- function(x, ...) {
-  #The function will receive the matrix, then, show the inverse if it is already obtained
+  #The function will receive the matrix, then, show the inverse if it has already obtained
   #or it will pass to the solve function
   inv <- x$getInverse()
   if (!is.null(inv)) {
